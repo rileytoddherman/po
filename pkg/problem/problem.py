@@ -1,4 +1,7 @@
-class Problem:
+from pkg.generic import Generic
+
+
+class Problem(Generic):
     def __init__(self, variables, constraints, objective_funcs):
         self.variables = variables
         self.constraints = constraints

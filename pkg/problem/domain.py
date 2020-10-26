@@ -1,5 +1,7 @@
 from abc import abstractmethod
 
+from pkg.generic import Generic
+
 
 def closest_in_list(el, lst):
     if not lst or not el:
@@ -19,7 +21,7 @@ def closest_in_list(el, lst):
     return closest_over
 
 
-class Domain:
+class Domain(Generic):
     @abstractmethod
     def __init__(self):
         pass
@@ -43,9 +45,6 @@ class Domain:
     @abstractmethod
     def __next__(self):
         raise NotImplementedError
-
-    def __repr__(self):
-        return str(self)
 
     @abstractmethod
     def pop(self):

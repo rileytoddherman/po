@@ -1,4 +1,7 @@
-class Constraint:
+from pkg.generic import Generic
+
+
+class Constraint(Generic):
     def __init__(self, variable_indexes, func):
         self.func = func
         self.variable_indexes = variable_indexes

@@ -1,10 +1,11 @@
+from pkg.generic import Generic
 from pkg.random.random import Random
 from pkg.problem.compare import dominates
 from pkg.consts import Constants
 from math import floor
 
 
-class Individual:
+class Individual(Generic):
     def __init__(self, problem=None, individual=None):
         if problem is None and individual is None:
             raise ValueError("must have a problem or an individual")
@@ -27,15 +28,6 @@ class Individual:
 
     def __str__(self):
         return str(self.problem.variable_assignments())
-
-    def __eq__(self, other):
-        return str(self) == str(other)
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __hash__(self):
-        return hash(str(self))
 
     def does_dominate(self, q):
         return dominates(self.problem.objective_values(), q.problem.objective_values())
