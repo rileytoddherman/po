@@ -20,7 +20,7 @@ class ObjectiveTest(unittest.TestCase):
     def test_get_objective_values(self):
         obj = default_objective()
         vrs = default_variables()
-        self.assertEqual(obj.get_objective_value(vrs), 8)
-        self.assertEqual(obj.get_objective_value(vrs), 8)
+        self.assertEqual(obj.objective_value(vrs), 8)
+        self.assertEqual(obj.objective_value(vrs), 8)
         vrs[0].set_value(4)
-        self.assertEqual(obj.get_objective_value(vrs), 9)
+        self.assertEqual(obj.objective_value(vrs), 9)

@@ -19,7 +19,7 @@ class ProblemTest(unittest.TestCase):
 
     def test_objective_values_empty(self):
         problem = default_consistent_problem()
-        problem.objective_funcs = None
+        problem.objectives = None
         self.assertIsNone(problem.objective_values())
 
     def test_all_assigned_true(self):

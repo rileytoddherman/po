@@ -2,6 +2,7 @@ from copy import deepcopy
 from math import floor
 
 from pkg.problem.continuous_domain import ContinuousDomain
+from pkg.problem.objective import Objective
 from pkg.random.random import Random
 from pkg.problem.problem import Problem
 from pkg.problem.variable import Variable
@@ -20,11 +21,11 @@ def default_portfolio_optimization_problem():
             [(0.0 if vsd.get_value() is None else vsd.get_value()) * vsd.get_objective_info()['price'] for vsd in
              vsds]))
 
-    def get_risk_objective():
+    def get_risk_objective_func():
         return lambda vsds: -sum(
             [(1.0 if vsd.get_value() is None else vsd.get_value()) * vsd.get_objective_info()['risk'] for vsd in vsds])
 
-    def get_reward_objective():
+    def get_reward_objective_func():
         return lambda vsds: sum(
             [(1.0 if vsd.get_value() is None else vsd.get_value()) * vsd.get_objective_info()['reward'] for vsd in
              vsds])
@@ -38,7 +39,7 @@ def default_portfolio_optimization_problem():
             Log.log("\t" + str(j))
     Log.end_debug()
     return Problem([convert_stock_data_to_variable(stock_data[vsd]) for vsd in stock_data], [get_budget_constraint()],
-                   [get_risk_objective(), get_reward_objective()])
+                   [Objective(get_risk_objective_func()), Objective(get_reward_objective_func())])
 
 
 def generate_many_random_solutions(problem, population_size):

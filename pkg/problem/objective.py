@@ -10,5 +10,5 @@ class Objective(Generic):
         return str(id(self.objective_func))
 
     @cached
-    def get_objective_value(self, variables):
+    def objective_value(self, variables):
         return self.objective_func(variables)
