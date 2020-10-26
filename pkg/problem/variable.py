@@ -1,11 +1,20 @@
 class Variable:
-    def __init__(self, domain, objective_info):
+    def __init__(self, domain, objective_info={}):
         self.domain = domain
         self.objective_info = objective_info
         self.value = None
 
     def __str__(self):
         return str(self.domain) + " {" + str(self.value) + "}"
+
+    def __repr__(self):
+        return str(self)
+
+    def __eq__(self, other):
+        return str(self) == str(other)
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
     def pop(self):
         return self.domain.pop()

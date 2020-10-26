@@ -14,6 +14,6 @@ Included in this library is also an implementation for each of the following alg
  
 More algorithm implementations forthcoming. 
 
-In order to run this code, there are two environment variables that need to be set (I do it from a `.env` file in the root directory)
+In order to run this code, there are two environment variables that need to be set (I do it from a `.env` file in the root directory or define when I run the program)
  - `LOG_LEVEL=debug | none`: this sets the granularity of the logging. Currently there is only `debug` and `none`, but more options can be added as the need arises.
  - `EXTERNAL_API=true | false`: this sets whether any client calls are made by the portfolio optimization implementation. 

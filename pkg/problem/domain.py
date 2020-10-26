@@ -44,6 +44,9 @@ class Domain:
     def __next__(self):
         raise NotImplementedError
 
+    def __repr__(self):
+        return str(self)
+
     @abstractmethod
     def pop(self):
         raise NotImplementedError
